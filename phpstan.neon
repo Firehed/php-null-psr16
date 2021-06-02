@@ -1,10 +1,9 @@
 includes:
-    # phpstan-baseline.neon
-    - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-strict-rules/rules.neon
 parameters:
     ignoreErrors:
-        - '#^Dynamic call to static method PHPUnit\\Framework\\Assert::assert#'
+        # This is unfixable without an upstream change to the interface.
+        - '#Multiple\(\) should be contravariant with parameter#'
     level: max
     paths:
         - src
