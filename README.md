@@ -1,19 +1,19 @@
-# php-library-template
-Repository template for PHP libraries. Sets up composer, CI with Github Actions, and more.
+# PSR-16 "null driver"
 
-## Git
-- Configures `.gitignore` for common excludes in a PHP library
+This is a [PSR-16](https://www.php-fig.org/psr/psr-16/) implementation that always fails.
 
-## Composer
-- Placeholders for library name, description, and PSR-4 autoloading
-- Scripts for testing
-- Requires current version of PHP
-- Includes testing tools (configured) as dev dependencies
+The motivation for this to exist is for fallback handling in cascading cache drivers.
+Rather than the application using a cache failing entirely because it can't connect to the cache, it can fall back to a non-throwing implementation like this.
 
-## Testing and CI
-CI is configured using Github Actions.
+Also useful for tests where you want to ensure correct non-throwing failure handling and don't want to write a mock driver.
 
-- PHPUnit `^9.3` with default configuration (`src`/`tests`).
-- The tests workflow uses a build matrix to test against multiple versions of PHP, and with high and low Composer dependencies installed
-- PHPStan with strict ruleset, max level, and the PHPUnit extension
-- PHP Code Sniffer configured with PSR-12
+## Installation and Usage
+
+Install: `composer require firehed/null-psr16`
+
+Usage:
+
+```php
+$cache = new \Firehed\Cache\NullPsr16();
+// Use like any other PSR-16 implementation
+```
