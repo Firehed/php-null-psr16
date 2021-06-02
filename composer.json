@@ -1,13 +1,13 @@
 {
-    "name": "your/library",
-    "description": "Description of your library",
-    "keywords": [],
+    "name": "firehed/null-psr16",
+    "description": "Always-offline PSR-16 cache implemention, for fallback and testing",
+    "keywords": ["cache", "psr-16"],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Your Name",
-            "email": "you@example.com"
+            "name": "Eric Stern",
+            "email": "eric@ericstern.com"
         }
     ],
     "config": {
@@ -16,20 +16,20 @@
     },
     "autoload": {
         "psr-4": {
-            "Your\\Library\\": "src"
+            "Firehed\\Cache\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Your\\Library\\": "tests"
+            "Firehed\\Cache\\": "tests"
         }
     },
     "require": {
-        "php": "^7.3 || ^8.0"
+        "php": "^8.0",
+        "psr/simple-cache": "^1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.46",
-        "phpstan/phpstan-phpunit": "^0.12.16",
         "phpstan/phpstan-strict-rules": "^0.12.5",
         "phpunit/phpunit": "^9.3",
         "squizlabs/php_codesniffer": "^3.5"
