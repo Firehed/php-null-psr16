@@ -10,7 +10,7 @@ use function array_map;
 /**
  * @covers Firehed\Cache\NullPsr16
  */
-class RedisPsr16Test extends \PHPUnit\Framework\TestCase
+class NullPsr16Test extends \PHPUnit\Framework\TestCase
 {
     private NullPsr16 $cache;
 
