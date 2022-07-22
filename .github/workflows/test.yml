@@ -70,7 +70,7 @@ jobs:
           --prefer-lowest
 
       - name: Install specific simple-cache version
-        run: composer update psr/simple-cache:^${{ matrix.simple-cache }} ${{ matrix.dependencies == 'low' && '--prefer-lowest' }}
+        run: composer update psr/simple-cache:^${{ matrix.simple-cache }} ${{ matrix.dependencies == 'low' && '--prefer-lowest' || '' }}
 
       - name: PHPUnit
         run: vendor/bin/phpunit
