@@ -40,7 +40,7 @@ class NullPsr16 implements CacheInterface
      * @param iterable<string> $keys
      * @return array<string, mixed>
      */
-    public function getMultiple($keys, $default = null)
+    public function getMultiple($keys, $default = null): iterable
     {
         $keys = is_array($keys) ? array_values($keys) : iterator_to_array($keys);
         return array_fill_keys($keys, $default);
