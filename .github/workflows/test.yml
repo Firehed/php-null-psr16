@@ -19,8 +19,14 @@ jobs:
         dependencies:
           - 'high'
           - 'low'
+        simple-cache:
+          - '1.0'
+          - '2.0'
+          - '3.0'
         php:
           - '8.0'
+          - '8.1'
+          - '8.2'
 
     steps:
       - name: Check out code
@@ -63,6 +69,9 @@ jobs:
           --no-suggest
           --prefer-dist
           --prefer-lowest
+
+      - name: Install specific simple-cache version
+        run: composer update psr/simple-cache:^${{ matrix.simple-cache }} ${{ matrix.dependencies == 'low' && '--prefer-lowest' }}
 
       - name: PHPUnit
         run: vendor/bin/phpunit
